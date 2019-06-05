@@ -360,6 +360,7 @@ func (s *state) compareStruct(t reflect.Type, vx, vy reflect.Value) {
 		step.vx = vx.Field(i)
 		step.vy = vy.Field(i)
 		step.name = t.Field(i).Name
+		step.anonymous = t.Field(i).Anonymous
 		step.idx = i
 		step.unexported = !isExported(step.name)
 		if step.unexported {

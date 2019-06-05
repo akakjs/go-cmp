@@ -177,8 +177,10 @@ type structField struct {
 	mayForce   bool                // Forcibly allow visibility
 	pvx, pvy   reflect.Value       // Parent values
 	field      reflect.StructField // Field information
+	anonymous  bool
 }
 
+func (sf StructField) Anonymous() bool { return sf.anonymous }
 func (sf StructField) Type() reflect.Type { return sf.typ }
 func (sf StructField) Values() (vx, vy reflect.Value) {
 	if !sf.unexported {
